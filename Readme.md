@@ -1,7 +1,7 @@
 # Личный проект «Менеджер задач» [![Build status][travis-image]][travis-url]
 
 * Студент: [Никита Шикуц](https://up.htmlacademy.ru/ecmascript/11/user/331239).
-* Наставник: `Неизвестно`.
+* Наставник: * Наставник: [Сергей Вохмянин](https://htmlacademy.ru/profile/id530823).
 
 ---
 
