@@ -32,9 +32,8 @@ render(taskListElement, createTaskEditTemplate(tasks[0]));
 
 let showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
 
-for (let i = 1; i < showingTasksCount; i++) {
-  render(taskListElement, createTaskTemplate(tasks[i]));
-}
+tasks.slice(1, showingTasksCount)
+  .forEach((task) => render(taskListElement, createTaskTemplate(task)));
 
 render(boardElement, createLoadMoreButtonTemplate());
 
