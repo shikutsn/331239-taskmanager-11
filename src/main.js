@@ -33,7 +33,7 @@ render(taskListElement, createTaskEditTemplate(tasks[0]));
 let showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
 
 for (let i = 1; i < showingTasksCount; i++) {
-  render(taskListElement, createTaskTemplate(tasks[i]), `beforeend`);
+  render(taskListElement, createTaskTemplate(tasks[i]));
 }
 
 render(boardElement, createLoadMoreButtonTemplate());
@@ -41,4 +41,9 @@ render(boardElement, createLoadMoreButtonTemplate());
 const loadMoreButton = boardElement.querySelector(`.load-more`);
 
 loadMoreButton.addEventListener(`click`, () => {
+  const prevTasksCount = showingTasksCount;
+  showingTasksCount = showingTasksCount + SHOWING_TASKS_COUNT_BY_BUTTON;
+
+  tasks.slice(prevTasksCount, showingTasksCount)
+    .forEach((task) => render(taskListElement, createTaskTemplate(task)));
 });
