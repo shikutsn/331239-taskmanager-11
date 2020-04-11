@@ -37,3 +37,8 @@ for (let i = 1; i < showingTasksCount; i++) {
 }
 
 render(boardElement, createLoadMoreButtonTemplate());
+
+const loadMoreButton = boardElement.querySelector(`.load-more`);
+
+loadMoreButton.addEventListener(`click`, () => {
+});
