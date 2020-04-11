@@ -1,4 +1,4 @@
-const createFIlterMarkup = (name, count) => {
+const createFilterMarkup = (name, count) => {
   return (
     `<input
       type="radio"
@@ -13,16 +13,29 @@ const createFIlterMarkup = (name, count) => {
 };
 
 export const createFilterTemplate = () => {
-  const filterMarkup = createFIlterMarkup(`all`, 45);
+  const filtersMarkup = [{
+    name: `all`,
+    count: 18,
+  }, {
+    name: `overdue`,
+    count: 18,
+  }, {
+    name: `today`,
+    count: 18,
+  }, {
+    name: `favorites`,
+    count: 18,
+  }, {
+    name: `repeating`,
+    count: 18,
+  }, {
+    name: `archive`,
+    count: 18,
+  }].map((it) => createFilterMarkup(it.name, it.count)).join(`\n`);
 
   return (
     `<section class="main__filter filter container">
-      ${filterMarkup}
-      ${filterMarkup}
-      ${filterMarkup}
-      ${filterMarkup}
-      ${filterMarkup}
-      ${filterMarkup}
+      ${filtersMarkup}
     </section>`
   );
 };
