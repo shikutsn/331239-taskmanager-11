@@ -10,7 +10,6 @@ export const createTaskEditTemplate = (task) => {
               <use xlink:href="#wave"></use>
             </svg>
           </div>
-
           <div class="card__textarea-wrap">
             <label>
               <textarea
@@ -20,14 +19,12 @@ export const createTaskEditTemplate = (task) => {
               >Here is a card with filled data</textarea>
             </label>
           </div>
-
           <div class="card__settings">
             <div class="card__details">
               <div class="card__dates">
                 <button class="card__date-deadline-toggle" type="button">
                   date: <span class="card__date-status">yes</span>
                 </button>
-
                 <fieldset class="card__date-deadline">
                   <label class="card__input-deadline-wrap">
                     <input
@@ -39,11 +36,9 @@ export const createTaskEditTemplate = (task) => {
                     />
                   </label>
                 </fieldset>
-
                 <button class="card__repeat-toggle" type="button">
                   repeat:<span class="card__repeat-status">yes</span>
                 </button>
-
                 <fieldset class="card__repeat-days">
                   <div class="card__repeat-days-inner">
                     <input
@@ -123,7 +118,6 @@ export const createTaskEditTemplate = (task) => {
                 </fieldset>
               </div>
             </div>
-
             <div class="card__colors-inner">
               <h3 class="card__colors-title">Color</h3>
               <div class="card__colors-wrap">
@@ -191,7 +185,6 @@ export const createTaskEditTemplate = (task) => {
               </div>
             </div>
           </div>
-
           <div class="card__status-btns">
             <button class="card__save" type="submit">save</button>
             <button class="card__delete" type="button">delete</button>
