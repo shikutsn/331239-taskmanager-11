@@ -30,8 +30,10 @@ const boardElement = siteMainElement.querySelector(`.board`);
 
 render(taskListElement, createTaskEditTemplate(tasks[0]));
 
-for (let i = 1; i < tasks.length; i++) {
-  render(taskListElement, createTaskTemplate(tasks[i]));
+let showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
+
+for (let i = 1; i < showingTasksCount; i++) {
+  render(taskListElement, createTaskTemplate(tasks[i]), `beforeend`);
 }
 
 render(boardElement, createLoadMoreButtonTemplate());
