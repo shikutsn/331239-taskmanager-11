@@ -1,10 +1,6 @@
-const castTimeFormat = (value) => {
-  return value < 10 ? `0${value}` : String(value);
-};
-
 export const formatTime = (date) => {
-  const hours = castTimeFormat(date.getHours() % 12);
-  const minutes = castTimeFormat(date.getMinutes());
+  const hours = String(date.getHours()).padStart(2, `0`);
+  const minutes = String(date.getMinutes()).padStart(2, `0`);
 
   return `${hours}:${minutes}`;
 };
