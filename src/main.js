@@ -2,7 +2,9 @@ import BoardComponent from "./components/board.js";
 import FiltersComponent from "./components/filters.js";
 import LoadMoreButtonComponent from "./components/load-more-button.js";
 import SiteMenuComponent from "./components/site-menu.js";
+import SortComponent from "./components/sort.js";
 import TaskComponent from "./components/task.js";
+import TasksComponent from "./components/tasks.js";
 import TaskEditComponent from "./components/task-edit.js";
 import {generateFilters} from "./mock/filter.js";
 import {generateTasks} from "./mock/task.js";
@@ -69,4 +71,8 @@ const filters = generateFilters();
 const tasks = generateTasks(TASK_COUNT);
 
 render(siteHeaderElement, new SiteMenuComponent().getElement(), RenderPosition.BEFOREEND);
-render(siteMainElement, new FilterComponent(filters).getElement(), RenderPosition.BEFOREEND);
+render(siteMainElement, new FiltersComponent(filters).getElement(), RenderPosition.BEFOREEND);
+
+const boardComponent = new BoardComponent();
+render(siteMainElement, boardComponent.getElement(), RenderPosition.BEFOREEND);
+renderBoard(boardComponent, tasks);
