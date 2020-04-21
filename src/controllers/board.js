@@ -125,6 +125,7 @@ export default class BoardController {
       const sortedTasks = getSortedTasks(tasks, sortType, 0, showingTasksCount);
 
       taskListElement.innerHTML = ``;
+      remove(this._loadMoreButtonComponent);
       renderTasks(taskListElement, sortedTasks);
 
       renderLoadMoreButton();
