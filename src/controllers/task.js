@@ -3,8 +3,9 @@ import TaskEditComponent from "../components/task-edit.js";
 import {render, replace, RenderPosition} from "../utils/render.js";
 
 export default class TaskController {
-  constructor(container) {
+  constructor(container, onDataChange) {
     this._container = container;
+    this._onDataChange = onDataChange;
 
     this._taskComponent = null;
     this._taskEditComponent = null;
@@ -12,15 +13,15 @@ export default class TaskController {
     this._onEscKeyDown = this._onEscKeyDown.bind(this);
   }
 
-  replaceTaskToEdit() {
+  _replaceTaskToEdit() {
     replace(this._taskEditComponent, this._taskComponent);
   }
 
-  replaceEditToTask() {
+  _replaceEditToTask() {
     replace(this._taskComponent, this._taskEditComponent);
   }
 
-  onEscKeyDown(evt) {
+  _onEscKeyDown(evt) {
     const isEscKey = evt.key === `Escape` || evt.key === `Esc`;
 
     if (isEscKey) {
@@ -29,7 +30,7 @@ export default class TaskController {
     }
   }
 
-  renderTask(task) {
+  render(task) {
     this._taskComponent = new TaskComponent(task);
     this._taskEditComponent = new TaskEditComponent(task);
 
@@ -39,9 +40,15 @@ export default class TaskController {
     });
 
     this._taskComponent.setArchiveButtonClickHandler(() => {
+      this._onDataChange(this, task, Object.assign({}, task, {
+        isArchive: !task.isArchive,
+      }));
     });
 
     this._taskComponent.setFavoritesButtonClickHandler(() => {
+      this._onDataChange(this, task, Object.assign({}, task, {
+        isFavorite: !task.isFavorite,
+      }));
     });
 
     this._taskEditComponent.setSubmitHandler((evt) => {
